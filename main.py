@@ -11,9 +11,16 @@ def get_word():
         with open('wordlist.json', 'r') as f:
             in_word = random.choice(json.load(f))
         f.close()
-    return in_word, len(in_word)
+    return in_word, len(in_word), list(in_word)
 
+print("Welcome to Hangman, created by Reuben Cowell")
+ready = input("Are you ready to play? (y/n) >>> ")
 
-word, len_word = get_word()
+while ready == "y":
+    lives = 6
+    word, len_word, char_list = get_word()
+    #print(word, len_word, char_list)
+    print("You have " + str(lives) + " lives!")
 
-print(word, len_word)
+    ready = input("Do you still want to play? (y/n) >>> ")
+print("bye then")
