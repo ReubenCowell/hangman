@@ -6,6 +6,7 @@ import random  # random is used to pick a random word from the json file
 
 
 def get_word():
+        # this function will get a random word from the word list and returns the word, the length of the word and the word as a list of characters 
 	in_word = ""
 	while len(in_word) < 3 or len(in_word) > 10:
 		with open('wordlist.json', 'r') as f:
@@ -27,10 +28,10 @@ print("Welcome to Hangman, created by Reuben Cowell")
 ready = input("Are you ready to play? (y/n) >>> ")
 
 while ready == "y":
-    lives = 6
-    bad_guesses = []
-    word, len_word, char_list = get_word()
-    unguessed_list = ["_"] * len_word
+    lives = 6  # reset lives at the start of the game
+    bad_guesses = [] # resets a list of bad guessed lessons 
+    word, len_word, char_list = get_word() # this runs the guess word function
+    unguessed_list = ["_"] * len_word # this sets up a list of underscores
     print(word, len_word, char_list)
 
     print("\n---------------------- \nYou have " + str(lives) + " lives!")
