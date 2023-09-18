@@ -37,7 +37,7 @@ while ready == "y":
 	unguessed_list = ["_"] * len_word  # this sets up a list of underscores
 	progress = 0 # a counter that shows how many letters in a word have been counted - wil be compared against word len
 	won = False
-	print(word, len_word, char_list)
+	# print(word, len_word, char_list)
 
 	print("\n---------------------- \nYou have " + str(lives) + " lives!")
 	print("Current word: " + " ".join(unguessed_list))
@@ -52,8 +52,16 @@ while ready == "y":
 			lives -= 1
 			status_update() # prints the progress to the screen
 		elif guess in char_list:
-			if char_list.count(guess) > 1: # TODO 
+			if char_list.count(guess) > 1: # TODO handle what happens when there 
 				print('The letter you guess')
+				num_in_word = char_list.count(guess)
+				for i in range(num_in_word):
+					guess_loc = char_list.index(guess)
+					unguessed_list[guess_loc] = guess
+					char_list[guess_loc] = '_'
+					progress += 1
+				print('Congratulations, you got ' + str(num_in_word) + ' letters!')
+				status_update()
 			else:
 				guess_loc = char_list.index(guess)
 				unguessed_list[guess_loc] = guess 
@@ -61,13 +69,12 @@ while ready == "y":
 				status_update()
 				progress += 1
 				if progress == len_word:
-					print('you won')
+					print('CONGRATULATIONS! \nYou won, the word was: '+word)
 					won = True
-					#TODO: Add a way to exit the while loop when user wins
 		if lives == 0:
 			print("GAME OVER! \nThe word was: "+word)
 
-	ready = input("Good game \nDo you want to play again (y/n) >>> ")
+	ready = input("\nDo you want to play again (y/n) >>> ")
 
 print("bye then")
 
