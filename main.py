@@ -52,7 +52,7 @@ while ready == "y":
 			lives -= 1
 			status_update() # prints the progress to the screen
 		elif guess in char_list:
-			if char_list.count(guess) > 1: # TODO handle what happens when there 
+			if char_list.count(guess) > 1:
 				print('The letter you guess')
 				num_in_word = char_list.count(guess)
 				for i in range(num_in_word):
@@ -81,3 +81,5 @@ print("bye then")
 
 # TODO: tidy up what is printed to the user
 # TODO: test program 
+# TODO: add a way to handle guessing the same correct letter multiple times (it currently allows you to win by spamming the same letter multiple times)
+# TODO: add hangman pictures with ASCII in the statusupdate function
