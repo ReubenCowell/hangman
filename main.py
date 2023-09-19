@@ -4,6 +4,98 @@
 import json  # json is used to store my word list
 import random  # random is used to pick a random word from the json file
 
+hangman = ["""
+   _________
+    |/        
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    """,
+
+"""
+   _________
+    |/   |      
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    H""",
+
+"""
+   _________       
+    |/   |              
+    |   (_)
+    |                         
+    |                       
+    |                         
+    |                          
+    |___                       
+    HA""",
+
+"""
+   ________               
+    |/   |                   
+    |   (_)                  
+    |    |                     
+    |    |                    
+    |                           
+    |                            
+    |___                    
+    HAN""",
+
+
+"""
+   _________             
+    |/   |               
+    |   (_)                   
+    |   /|                     
+    |    |                    
+    |                        
+    |                          
+    |___                          
+    HANG""",
+
+
+"""
+   _________              
+    |/   |                     
+    |   (_)                     
+    |   /|\                    
+    |    |                       
+    |                             
+    |                            
+    |___                          
+    HANGM""",
+
+
+
+"""
+   ________                   
+    |/   |                         
+    |   (_)                      
+    |   /|\                             
+    |    |                          
+    |   /                            
+    |                                  
+    |___                              
+    HANGMA""",
+
+
+"""
+   ________
+    |/   |     
+    |   (_)    
+    |   /|\           
+    |    |        
+    |   / \        
+    |               
+    |___           
+    HANGMAN"""]
 
 def get_word():
 	# this function will get a random word from the word list and returns the word, the length of the word and the word as a list of characters
@@ -25,13 +117,15 @@ def get_guess(): # This is used to get a single letter guess from a user, and wi
 def status_update(): # this prints to the screen a user's current lives and their bad guesses
 	print("----------\nLives: " + str(lives) + "\nBad guesses: " +
 	      ", ".join(bad_guesses) + "\nCurrent word: " + " ".join(unguessed_list))
+	print(hangman[8-lives])
+	# TODO: fix bug with list index
 
 
 print("Welcome to Hangman, created by Reuben Cowell")
 ready = input("Are you ready to play? (y/n) >>> ")
 
 while ready == "y":
-	lives = 6  # reset lives at the start of the game
+	lives = 8  # reset lives at the start of the game
 	bad_guesses = []  # resets a list of bad guessed lessons
 	word, len_word, char_list = get_word()  # this runs the guess word function
 	unguessed_list = ["_"] * len_word  # this sets up a list of underscores
@@ -53,7 +147,7 @@ while ready == "y":
 			status_update() # prints the progress to the screen
 		elif guess in char_list:
 			if char_list.count(guess) > 1:
-				print('The letter you guess')
+				print('The letter you guessed was in the word ' + str(char_list.count(guess)) + 'times')
 				num_in_word = char_list.count(guess)
 				for i in range(num_in_word):
 					guess_loc = char_list.index(guess)
