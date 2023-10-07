@@ -169,7 +169,7 @@ while ready == "y":
 
 	ready = input("\nDo you want to play again (y/n) >>> ")
 
-print("bye then")0
+print("bye then")
 
 
 # TODO: tidy up what is printed to the user
