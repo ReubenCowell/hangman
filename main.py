@@ -131,7 +131,6 @@ while ready == "y":
 	unguessed_list = ["_"] * len_word  # this sets up a list of underscores
 	progress = 0 # a counter that shows how many letters in a word have been counted - wil be compared against word len
 	won = False
-	# print(word, len_word, char_list)
 
 	print("\n---------------------- \nYou have " + str(lives) + " lives!")
 	print("Current word: " + " ".join(unguessed_list))
@@ -170,10 +169,10 @@ while ready == "y":
 
 	ready = input("\nDo you want to play again (y/n) >>> ")
 
-print("bye then")
+print("bye then")0
 
 
 # TODO: tidy up what is printed to the user
 # TODO: test program 
 # TODO: add a way to handle guessing the same correct letter multiple times (it currently allows you to win by spamming the same letter multiple times)
-# TODO: add hangman pictures with ASCII in the statusupdate function
+# TODO:	Allow end user to enter a word into the array
