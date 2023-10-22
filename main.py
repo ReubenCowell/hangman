@@ -111,7 +111,7 @@ def get_guess(): # This is used to get a single letter guess from a user, and wi
 	initial_guess = input("Please enter your guess >>> ")
 	while len(initial_guess) > 1 or initial_guess.isalpha() == False:
 		initial_guess = input("Guess must be a singular letter >>> ")
-	return initial_guess
+	return initial_guess.lower()
 
 
 def status_update(): # this prints to the screen a user's current lives and their bad guesses
